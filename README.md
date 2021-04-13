@@ -1,4 +1,4 @@
-# Two-Step-Feature-Selection
+# Cervical Cytology Classification Using PCA & GWO Enhanced Deep Features Selection
 
 Official Python Implementation of the paper titled "Cervical Cytology Classification Using PCA & GWO Enhanced Deep Features Selection"
 
