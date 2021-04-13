@@ -39,6 +39,6 @@ If this repository helps you in your research in any way, please cite our paper:
 ```
 @article{basak2021cervical,
   title={Cervical Cytology Classification Using PCA \& GWO Enhanced Deep Features Selection}
-  author={Basak, Hritam and Kundu, Rohit and Das, Nibaran}
+  author={Basak, Hritam and Kundu, Rohit and Chakraborty, Sukanta and Das, Nibaran}
 }
 ```
