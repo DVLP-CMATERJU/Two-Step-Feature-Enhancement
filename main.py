@@ -7,6 +7,7 @@ import pandas as pd
 import fitnessFUNs
 import argparse
 import numpy as np
+from sklearn.decomposition import PCA
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--export', type=bool, default = True, help='Export results to a csv file? True/False')
@@ -33,14 +34,16 @@ def join_csv(csv_list,dset_name):
                     df2 = df2[:,0:-1]
                     df = np.concatenate((df,df2),axis=1)
         df = np.transpose(df)
+        
+        pca = PCA(n_components=0.99, svd_solver='full')
+        df = pca.fit_transform(df)
+        
         df = np.transpose(np.vstack([df,target]))
+        print(df.shape)
         np.savetxt(dset_name+".csv", df, delimiter=",")
         return dset_name
 
-if args.num_csv==1:
-        datasets = [csv_list[0]]
-else:
-        datasets=[join_csv(csv_list,dset_name='final_feat')]
+datasets=[join_csv(csv_list,dset_name='final_feat')]
         
 # Select number of repetitions for each experiment. 
 # To obtain meaningful statistical results, usually 30 independent runs 
