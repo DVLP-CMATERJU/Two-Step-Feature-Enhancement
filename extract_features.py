@@ -11,7 +11,11 @@ from keras.preprocessing.image import load_img
 from imutils import paths
 import numpy as np
 import pickle
-import os
+import os,argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--root', type=str, default="data/", help='Root directory of data')
+args = parser.parse_args()
 
 # load the network and initialize the label encoder
 print("[INFO] loading network...")
@@ -22,7 +26,7 @@ le = None
 for split in ("data", "dummy"):
 	# grab all image paths in the current split
 	print("[INFO] processing '{} split'...".format(split))
-	p = os.path.sep.join(["hymenoptera_data", split])
+	p = os.path.sep.join([args.root, split])
 	imagePaths = list(paths.list_images(p))
 
 	# randomly shuffle the image paths and then extract the class
