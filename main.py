@@ -33,12 +33,13 @@ def join_csv(csv_list,dset_name):
                     df2 = np.asarray(pd.read_csv(i,header=None))
                     df2 = df2[:,0:-1]
                     df = np.concatenate((df,df2),axis=1)
-        df = np.transpose(df)
         
-        pca = PCA(n_components=0.99, svd_solver='full')
-        df = pca.fit_transform(df)
-        
-        df = np.transpose(np.vstack([df,target]))
+        pca = PCA(0.99)
+        fit = pca.fit(df)
+        df = fit.transform(df)
+        print(df.shape)
+
+        df = np.vstack([df,target])
         print(df.shape)
         np.savetxt(dset_name+".csv", df, delimiter=",")
         return dset_name
