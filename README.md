@@ -10,21 +10,31 @@ To install the required dependencies run the following using the Command Prompt:
 
 # Implementing the code for Cervical Cytology data
 
-Extract the deep features from the cervical cytlogy data and save the features in a csv file (without headers) where the last column contains the original labels of the data.
+Similarly the script can be modified for extracting features from other models.
+
+Structure the directory as follows:
 
 ```
 
 .
++-- data
+|   +-- .
+|   +-- train
+|   +-- val
++-- extract_features.py
 +-- fitnessFUNs.py
 +-- GWO.py
 +-- main.py
 +-- resnet50.csv
-+-- vgg16.csv
 +-- selector.py
 +-- solution.py
 +-- transfer_functions_benchmark.py
 
 ```
+
+To extract ResNet-50 features run the following script:
+
+`python extract_features.py`
 
 Run the following code for the feature set optimization:
 
